@@ -9,21 +9,26 @@ import UIKit
 
 class SimulationViewController: UIViewController {
 
+    // MARK: - UI
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupViews()
+        setupConstraints()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Setup
+extension SimulationViewController {
+    // MARK: - Setup Views
+    private func setupViews() {
+        view.backgroundColor = .white
     }
-    */
 
+    // MARK: - Setup Constraints
+    private func setupConstraints() {
+
+    }
 }

@@ -10,14 +10,36 @@ import UIKit
 final class MainViewController: UIViewController {
 
     // MARK: - UI
-    private let label: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .semibold)
-        label.textColor = .black
-        return label
+    private let label = PrimaryLabel(with: .primary)
+
+    private let peopleView: MainView = {
+        let view = MainView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
-    private lazy var modelingButton: UIButton = {
+    private let infectionPeopleView: MainView = {
+        let view = MainView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let timerView: MainView = {
+        let view = MainView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [peopleView, infectionPeopleView, timerView])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
+    private lazy var simulateButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
@@ -25,6 +47,7 @@ final class MainViewController: UIViewController {
         button.backgroundColor = AppColors.primaryBlue
         button.setTitleColor(AppColors.white, for: .normal)
         button.setTitle("Запустить Моделирование", for: .normal)
+        button.addTarget(self, action: #selector(didTapSimulateButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -36,6 +59,16 @@ final class MainViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }
 
 
@@ -43,20 +76,38 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
     // MARK: - Setup Views
     private func setupViews() {
-        view.backgroundColor = .white
-        view.addSubview(modelingButton)
+        view.backgroundColor = AppColors.white
+        label.text = "Симулятор распространения вируса"
+        [label, stackView, simulateButton].forEach(view.addSubview)
     }
 
     // MARK: - Setup Constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            modelingButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+            stackView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            stackView.heightAnchor.constraint(equalToConstant: 200),
+
+            simulateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                                                     constant: 16),
-            modelingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, 
+            simulateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                                                      constant: -16),
-            modelingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+            simulateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                    constant: -20),
-            modelingButton.heightAnchor.constraint(equalToConstant: 44),
+            simulateButton.heightAnchor.constraint(equalToConstant: 44),
         ])
+    }
+}
+
+// MARK: - Action
+private extension MainViewController {
+    @objc private func didTapSimulateButton() {
+        let vc = SimulationViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
