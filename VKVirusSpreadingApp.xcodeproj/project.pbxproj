@@ -12,6 +12,8 @@
 		1677500A2BB31C5500C13AFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167750092BB31C5500C13AFF /* ViewController.swift */; };
 		1677500F2BB31C5600C13AFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677500E2BB31C5600C13AFF /* Assets.xcassets */; };
 		167750122BB31C5600C13AFF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 167750112BB31C5600C13AFF /* Base */; };
+		167750202BB325E400C13AFF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677501F2BB325E400C13AFF /* UIColor+Extension.swift */; };
+		167750222BB3261500C13AFF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167750212BB3261500C13AFF /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1677500E2BB31C5600C13AFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		167750112BB31C5600C13AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		167750132BB31C5600C13AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1677501F2BB325E400C13AFF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		167750212BB3261500C13AFF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,48 @@
 		167750042BB31C5500C13AFF /* VKVirusSpreadingApp */ = {
 			isa = PBXGroup;
 			children = (
+				167750132BB31C5600C13AFF /* Info.plist */,
 				167750052BB31C5500C13AFF /* AppDelegate.swift */,
 				167750072BB31C5500C13AFF /* SceneDelegate.swift */,
-				167750092BB31C5500C13AFF /* ViewController.swift */,
-				1677500E2BB31C5600C13AFF /* Assets.xcassets */,
-				167750102BB31C5600C13AFF /* LaunchScreen.storyboard */,
-				167750132BB31C5600C13AFF /* Info.plist */,
+				1677501D2BB325AF00C13AFF /* Core */,
+				1677501A2BB321E100C13AFF /* Resources */,
+				167750192BB321C700C13AFF /* Contollers */,
 			);
 			path = VKVirusSpreadingApp;
+			sourceTree = "<group>";
+		};
+		167750192BB321C700C13AFF /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				167750092BB31C5500C13AFF /* ViewController.swift */,
+			);
+			name = Contollers;
+			sourceTree = "<group>";
+		};
+		1677501A2BB321E100C13AFF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1677501E2BB325B600C13AFF /* Extensions */,
+				1677500E2BB31C5600C13AFF /* Assets.xcassets */,
+				167750102BB31C5600C13AFF /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1677501D2BB325AF00C13AFF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		1677501E2BB325B600C13AFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1677501F2BB325E400C13AFF /* UIColor+Extension.swift */,
+				167750212BB3261500C13AFF /* UICollectionView+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1677500A2BB31C5500C13AFF /* ViewController.swift in Sources */,
+				167750222BB3261500C13AFF /* UICollectionView+Extension.swift in Sources */,
 				167750062BB31C5500C13AFF /* AppDelegate.swift in Sources */,
 				167750082BB31C5500C13AFF /* SceneDelegate.swift in Sources */,
+				167750202BB325E400C13AFF /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

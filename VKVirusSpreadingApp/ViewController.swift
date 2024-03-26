@@ -17,6 +17,16 @@ final class ViewController: UIViewController {
         return label
     }()
 
+    private lazy var modelingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
+        button.backgroundColor = .red
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Продолжить", for: .normal)
+        return button
+    }()
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
