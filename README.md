@@ -1,0 +1,2 @@
+# VKSpreadingVirusApp
+VKSpreadingVirusApp Assignment VK
