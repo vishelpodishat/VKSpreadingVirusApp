@@ -12,6 +12,8 @@ final class PrimaryLabel: UILabel {
     enum LabelType {
         case primary
         case simulation
+        case infectionCount
+        case percentage
     }
 
     init(with labelType: LabelType) {
@@ -38,6 +40,14 @@ extension PrimaryLabel {
             font = .systemFont(ofSize: 16, weight: .semibold)
             textColor = AppColors.white
             numberOfLines = 0
+            textAlignment = .center
+        case .infectionCount:
+            font = .systemFont(ofSize: 14, weight: .medium)
+            textColor = AppColors.white
+            textAlignment = .center
+        case .percentage:
+            font = .systemFont(ofSize: 14, weight: .regular)
+            textColor = AppColors.grey
             textAlignment = .center
         }
     }

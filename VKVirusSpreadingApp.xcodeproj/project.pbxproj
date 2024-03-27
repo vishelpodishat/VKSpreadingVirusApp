@@ -19,6 +19,13 @@
 		1677502D2BB34C4900C13AFF /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677502C2BB34C4900C13AFF /* SimulationViewController.swift */; };
 		1677502F2BB34DAE00C13AFF /* PrimaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677502E2BB34DAE00C13AFF /* PrimaryLabel.swift */; };
 		167750312BB3599F00C13AFF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167750302BB3599F00C13AFF /* MainView.swift */; };
+		167750342BB36C8100C13AFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167750332BB36C8100C13AFF /* MainViewModel.swift */; };
+		168CB35A2BB41CAA00E6F9CB /* HumanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB3592BB41CAA00E6F9CB /* HumanCollectionViewCell.swift */; };
+		168CB35C2BB41FEF00E6F9CB /* HumanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB35B2BB41FEF00E6F9CB /* HumanView.swift */; };
+		168CB35E2BB44C7000E6F9CB /* HumanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB35D2BB44C7000E6F9CB /* HumanModel.swift */; };
+		168CB3622BB45D0C00E6F9CB /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB3612BB45D0C00E6F9CB /* StatisticView.swift */; };
+		168CB3642BB4667F00E6F9CB /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB3632BB4667F00E6F9CB /* CounterView.swift */; };
+		168CB3662BB46BFD00E6F9CB /* SimulationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168CB3652BB46BFD00E6F9CB /* SimulationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +43,13 @@
 		1677502C2BB34C4900C13AFF /* SimulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		1677502E2BB34DAE00C13AFF /* PrimaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryLabel.swift; sourceTree = "<group>"; };
 		167750302BB3599F00C13AFF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		167750332BB36C8100C13AFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		168CB3592BB41CAA00E6F9CB /* HumanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanCollectionViewCell.swift; sourceTree = "<group>"; };
+		168CB35B2BB41FEF00E6F9CB /* HumanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanView.swift; sourceTree = "<group>"; };
+		168CB35D2BB44C7000E6F9CB /* HumanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanModel.swift; sourceTree = "<group>"; };
+		168CB3612BB45D0C00E6F9CB /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
+		168CB3632BB4667F00E6F9CB /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		168CB3652BB46BFD00E6F9CB /* SimulationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,8 @@
 		167750262BB328F300C13AFF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				168CB35D2BB44C7000E6F9CB /* HumanModel.swift */,
+				168CB3652BB46BFD00E6F9CB /* SimulationModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -136,6 +152,7 @@
 		167750272BB328FD00C13AFF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				167750332BB36C8100C13AFF /* MainViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -143,10 +160,22 @@
 		167750292BB3291100C13AFF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				168CB3582BB41C9800E6F9CB /* Cell */,
 				167750192BB321C700C13AFF /* Contollers */,
 				167750302BB3599F00C13AFF /* MainView.swift */,
+				168CB35B2BB41FEF00E6F9CB /* HumanView.swift */,
+				168CB3612BB45D0C00E6F9CB /* StatisticView.swift */,
+				168CB3632BB4667F00E6F9CB /* CounterView.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		168CB3582BB41C9800E6F9CB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				168CB3592BB41CAA00E6F9CB /* HumanCollectionViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,16 +248,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168CB3662BB46BFD00E6F9CB /* SimulationModel.swift in Sources */,
 				1677500A2BB31C5500C13AFF /* MainViewController.swift in Sources */,
+				168CB3622BB45D0C00E6F9CB /* StatisticView.swift in Sources */,
 				167750222BB3261500C13AFF /* UICollectionView+Extension.swift in Sources */,
+				168CB35C2BB41FEF00E6F9CB /* HumanView.swift in Sources */,
 				167750062BB31C5500C13AFF /* AppDelegate.swift in Sources */,
+				167750342BB36C8100C13AFF /* MainViewModel.swift in Sources */,
 				167750312BB3599F00C13AFF /* MainView.swift in Sources */,
+				168CB3642BB4667F00E6F9CB /* CounterView.swift in Sources */,
 				167750242BB3268F00C13AFF /* AppColors.swift in Sources */,
 				1677502B2BB34B5A00C13AFF /* UIViewController+Extension.swift in Sources */,
 				1677502D2BB34C4900C13AFF /* SimulationViewController.swift in Sources */,
+				168CB35A2BB41CAA00E6F9CB /* HumanCollectionViewCell.swift in Sources */,
 				167750082BB31C5500C13AFF /* SceneDelegate.swift in Sources */,
 				1677502F2BB34DAE00C13AFF /* PrimaryLabel.swift in Sources */,
 				167750202BB325E400C13AFF /* UIColor+Extension.swift in Sources */,
+				168CB35E2BB44C7000E6F9CB /* HumanModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

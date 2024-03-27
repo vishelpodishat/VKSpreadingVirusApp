@@ -34,10 +34,21 @@ final class MainView: UIView {
         return textField
     }()
 
+    private var value: Int = 0
+    private var defaultValue: Int = 0
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+    }
+
+    convenience init(label: String, defaultValue: Int) {
+        self.init()
+        self.label.text = label
+        self.defaultValue = defaultValue
+        simulationTextField.text = "\(defaultValue)"
+        value = defaultValue
     }
 
     required init?(coder: NSCoder) {
@@ -49,7 +60,6 @@ final class MainView: UIView {
 extension MainView {
     // MARK: - Setup Views
     private func setupViews() {
-        label.text = "Количество людей"
         [mainView, label, simulationTextField].forEach(addSubview)
     }
 
@@ -80,5 +90,9 @@ extension MainView {
     func configure(labelText: String, textFieldText: String) {
         label.text = labelText
         simulationTextField.text = textFieldText
+    }
+
+    func getCurrentValue() -> Int {
+        return value
     }
 }

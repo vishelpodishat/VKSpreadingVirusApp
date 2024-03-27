@@ -13,19 +13,19 @@ final class MainViewController: UIViewController {
     private let label = PrimaryLabel(with: .primary)
 
     private let peopleView: MainView = {
-        let view = MainView()
+        let view = MainView(label: "Количество людей", defaultValue: 100)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let infectionPeopleView: MainView = {
-        let view = MainView()
+        let view = MainView(label: "Количество заражаемых людей", defaultValue: 3)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let timerView: MainView = {
-        let view = MainView()
+        let view = MainView(label: "Таймер перерасчета", defaultValue: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -55,7 +55,7 @@ final class MainViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         setupViews()
         setupConstraints()
     }
@@ -107,7 +107,15 @@ private extension MainViewController {
 // MARK: - Action
 private extension MainViewController {
     @objc private func didTapSimulateButton() {
-        let vc = SimulationViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let mode = getModels()
+        let simulationViewController = SimulationViewController(model: mode)
+        navigationController?.pushViewController(simulationViewController, animated: true)
+    }
+
+    private func getModels() -> SimulationModel {
+        let groupSize = peopleView.getCurrentValue()
+        let infectionFactor = infectionPeopleView.getCurrentValue()
+        let timer = timerView.getCurrentValue()
+        return SimulationModel(groupSize: groupSize, infectionFactor: infectionFactor, timer: timer)
     }
 }
